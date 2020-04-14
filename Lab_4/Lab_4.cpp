@@ -21,20 +21,21 @@ int main()
 	int numbers[N] = { 0 };
 
 	kst = GetNumbers(kst, numbers); // функція повертає кількість чисел
-	int nsd = *numbers; 
+	int nsd_i = *numbers;
+	int nsd_r = *numbers;
 
 	if (kst)
 	{
 		printf("\n\n*Ітераційна функція*\n");
 		for (int k = 1; k < kst; k++)
 		{
-			nsd = NSD(nsd, *(numbers + k));
+			nsd_i = NSD(nsd_i, *(numbers + k));
 		}
-		Print(kst, nsd);
+		Print(kst, nsd_i);
 
 		printf("\n*Рекурсивна функція*\n\n");
-		RecNSD(*numbers, (numbers + 1), rec);
-		Print(kst, nsd);
+		nsd_r = RecNSD(*numbers, (numbers + 1), rec);
+		Print(kst, nsd_r);
 	}
 	else
 		printf("\nВи не ввели жодного числа, крім 0!\n\n");
@@ -81,7 +82,7 @@ return nsd;
 int RecNSD(int nsd, int *num, int rec) // рекурсивний варіант функції 
 {
 	if (*num <= 0) // базис
-		return *(num - 1);
+		return (nsd);
 	rec++;
 	printf("*Виклик функції №%d*\n", rec);;
 	int a = nsd;
