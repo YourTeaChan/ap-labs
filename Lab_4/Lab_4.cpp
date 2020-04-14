@@ -21,8 +21,8 @@ int main()
 	int numbers[N] = { 0 };
 
 	kst = GetNumbers(kst, numbers); // функція повертає кількість чисел
-	int nsd_i = *numbers;
-	int nsd_r = *numbers;
+	int nsd_i = *numbers; // початкове значення НСД ітераційної функції
+	int nsd_r = *numbers; // початкове значення НСД рекурсивної функції
 
 	if (kst)
 	{
@@ -34,7 +34,7 @@ int main()
 		Print(kst, nsd_i);
 
 		printf("\n*Рекурсивна функція*\n\n");
-		nsd_r = RecNSD(*numbers, (numbers + 1), rec);
+		nsd_r = RecNSD(nsd_r, (numbers + 1), rec);
 		Print(kst, nsd_r);
 	}
 	else
