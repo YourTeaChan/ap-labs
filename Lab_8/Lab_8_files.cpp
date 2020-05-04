@@ -169,6 +169,17 @@ void FilePrint(FILE* flow_out, double** matrix)
 	printf("\nВведіть назву файлу, в який буде записано результат: ");
 	gets_s(file_w, N);
 	flow_out = fopen(file_w, "w");
+	if (file_w != NULL)
+		printf("\nФайл відкрився!\n");
+	else
+	{
+		while (file_w == NULL)
+		{
+			printf("\nФайл не відкрився! Спробуйте ще раз: ");
+			gets_s(file_w, N);
+		}
+		printf("\nФайл відкрився!\n");
+	}
 	for (int i = 0; i < rows; i++)
 	{
 		for (int j = 0; j < columns; j++)
