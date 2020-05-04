@@ -59,16 +59,14 @@ void GetDimensionOfMatrix()
 
 void GetMatrix(double** matrix)
 {
-	int i, j;
-	double** pr, * pc;
 	printf("--------------------------------------------------------------");
 	printf("\nВведіть матрицю:\n\n");
-	for (i = 0, pr = matrix; i < rows; i++, pr++)
+	for (int i = 0; i < rows; i++)
 	{	
 		printf("Рядок %d: ", i + 1);
-		for (j = 0, pc = *pr; j < columns; j++, pc++)
+		for (int j = 0; j < columns; j++)
 		{
-			scanf_s("%lf", pc);
+			scanf_s("%lf", &matrix[i][j]);
 		}
 	}
 	printf("--------------------------------------------------------------\n");
@@ -123,13 +121,11 @@ void Swap(double** row_1, double** row_2)
 void PrintMatrix(double** matrix)
 {
 	printf("\n");
-	int i, j;
-	double** pr, * pc;
-	for (i = 0, pr = matrix; i < rows; i++, pr++)
+	for (int i = 0; i < rows; i++)
 	{
-		for (j = 0, pc = *pr; j < columns; j++, pc++)
+		for (int j = 0; j < columns; j++)
 		{
-			printf("%7.2lf\t", *pc);
+			printf("%7.2lf\t", matrix[i][j]);
 		}
 		printf("\n");
 	}
