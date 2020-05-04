@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
@@ -18,7 +18,7 @@ typedef struct List_of_cars
 	char problems[P];
 } Cars;
 
-void List(int stop, Cars* сar);
+void GetList(Cars* �ar, int* stop);
 void QuickSort(Cars* L, Cars* R);
 void Swap(Cars* Left, Cars* Right);
 void Results(Cars* car);

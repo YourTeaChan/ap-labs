@@ -2,18 +2,17 @@
 
 int kst;
 
-void List(int stop, Cars* car)
+void GetList(Cars* car, int* stop)
 {
 	printf("\nДопустима кількість автомобілів у списку: %d\n", N);
-	printf("\n-------------------------------------------------\n");
+	printf("\n-------------------------------------------------------------------------------------\n");
 	for (int i = 0; i < N; i++)
 	{
 		printf("Для продовження введення введіть будь-яку цифру, для завершення введення введіть 0: ");
-		rewind(stdin);
-		scanf_s("%d", &stop);
-		if (stop == 0)
+		scanf_s("%d", stop);
+		if (*stop == 0)
 			break;
-		printf("-------------------------------------------------\n");
+		printf("-------------------------------------------------------------------------------------\n");
 		rewind(stdin);
 		printf("\nПрізвище та ім'я власника: ");
 		gets_s((car + i)->owner, W);
@@ -23,7 +22,7 @@ void List(int stop, Cars* car)
 		gets_s((car + i)->brand, B);
 		printf("\nНесправності: ");
 		gets_s((car + i)->problems, P);
-		printf("\n-------------------------------------------------\n");
+		printf("\n-------------------------------------------------------------------------------------\n");
 		rewind(stdin);
 		kst++;
 	}
@@ -69,8 +68,7 @@ void QuickSort(Cars* L, Cars* R)
 
 void Swap(Cars* Left, Cars* Right)
 {
-	Cars buff;
-	buff = *Left;
+	Cars buff = *Left;
 	*Left = *Right;
 	*Right = buff;
 }
@@ -114,5 +112,5 @@ void Top(Cars* car)
 	if (max_repeat)
 		printf("\n\nНайбільше в списку автомобілів марки %s - %d шт.\n\n", max_model, max_repeat + 1);
 	else
-		printf("\n\nЖодна з марок не повторюється\n\n");
+		printf("\n\nЖодна з марок не повторюється.\n\n");
 }
