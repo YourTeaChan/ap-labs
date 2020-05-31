@@ -34,9 +34,9 @@ void PrintTree(Tree* node);
 int NumberOfLeaves();
 int TreeHeight(Tree* node);
 void ChangeRoot();
+Tree* SearchExstrimeRight(Tree* node);
 void DeleteTree(Tree* node);
 void FreeMemory(Tree* node);
-Tree* SearchMaxValue(Tree* node);
 
 Tree* root;
 
@@ -220,7 +220,7 @@ int TreeHeight(Tree* node)
 
 void ChangeRoot()
 {
-	Tree* extrimeright = SearchMaxValue(root->left);
+	Tree* extrimeright = SearchExstrimeRight(root->left);
 	Tree* leftchild;
 	Tree* parent = root->left;
 	while (parent->right != extrimeright)
@@ -234,11 +234,11 @@ void ChangeRoot()
 	root = extrimeright;
 }
 
-Tree* SearchMaxValue(Tree* node)
+Tree* SearchExstrimeRight(Tree* node)
 {
 	if (node->right != NULL)
 	{
-		return SearchMaxValue(node->right);
+		return SearchExstrimeRight(node->right);
 	}
 	else
 	{
