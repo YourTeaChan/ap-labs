@@ -166,7 +166,7 @@ bool ThisCodeIsWrong(List* item)
 				return true;
 			}
 		}
-		buff = strtok(++buff, leks); // перехід на наступну тетраду
+		buff = strtok(NULL, leks); // перехід на наступну тетраду
 	}
 	free(copycode);
 	return false;
@@ -228,7 +228,7 @@ int DecimalValuesOfCodes(List* item)
 	char* buff = strtok(copycode, leks);
 	while (buff != NULL)
 	{
-		decimalvalue = strtol(copycode, &stop, 2);
+		decimalvalue = strtol(buff, &stop, 2);
 		value = decimalvalue + 10 * value;
 		buff = strtok(NULL, leks);
 	}
