@@ -252,9 +252,11 @@ void DeleteTree(Tree* node)
 	{
 		return;
 	}
-	DeleteTree(node->right);
-	DeleteTree(node->left);
+	Tree* p_l = node->left;
+	Tree* p_r = node->right;
 	FreeMemory(node);
+	DeleteTree(p_r);
+	DeleteTree(p_l);
 }
 
 void FreeMemory(Tree* node)
