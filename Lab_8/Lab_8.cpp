@@ -13,7 +13,6 @@ void GetDimensionOfMatrix();
 void GetMatrix(double** matrix);
 int MinRowAverageValue(double** matrix);
 void RowPermutation(double** matrix, int min_value_row);
-void Swap(double** row_1, double** row_2);
 void PrintMatrix(double** matrix);
 void FreeMemory(double** matrix);
 
@@ -102,20 +101,19 @@ int MinRowAverageValue(double** matrix)
 void RowPermutation(double** matrix, int min_value_row)
 {
 	if (min_value_row == 0)
+	{
 		return;
-	double** pr;
+	}
+	static double *tmp;
 	for (int i = min_value_row; i != 0; i--)
 	{
-		pr = matrix + i;
-		Swap(pr, pr-1);
+		tmp = *matrix;
+		for (int j = 0; j < rows - 1; j++)
+		{
+			matrix[j] = matrix[j + 1];
+		}		
+		matrix[rows - 1] = tmp;
 	}
-}
-
-void Swap(double** row_1, double** row_2)
-{
-	double* tmp = *row_1;
-	*row_1 = *row_2;
-	*row_2 = tmp;
 }
 
 void PrintMatrix(double** matrix)
