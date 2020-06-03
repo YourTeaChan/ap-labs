@@ -104,7 +104,7 @@ void RowPermutation(double** matrix, int min_value_row)
 	{
 		return;
 	}
-	static double *tmp;
+	double *tmp;
 	for (int i = min_value_row; i != 0; i--)
 	{
 		tmp = *matrix;
